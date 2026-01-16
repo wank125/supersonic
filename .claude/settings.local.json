@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch:*)",
+      "Bash(git tag:*)",
+      "Bash(git checkout:*)",
+      "Bash(sh:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(git push:*)",
+      "Bash(docker-compose up:*)",
+      "Bash(docker info:*)",
+      "Bash(powershell.exe -Command \"Stop-Process -Name ''Docker Desktop'' -Force -ErrorAction SilentlyContinue; echo ''Docker Desktop 已停止，请手动重新打开''\")",
+      "Bash(cat:*)",
+      "Bash(docker pull:*)",
+      "Bash(docker tag:*)",
+      "Bash(docker-compose ps:*)",
+      "Bash(docker-compose logs:*)",
+      "Bash(curl:*)",
+      "Bash(docker exec:*)",
+      "Bash(docker-compose down:*)",
+      "mcp__web-reader__webReader",
+      "mcp__zai-mcp-server__extract_text_from_screenshot",
+      "mcp__web-search-prime__webSearchPrime",
+      "Bash(docker ps:*)",
+      "Bash(docker logs:*)",
+      "Bash(wc:*)"
+    ]
+  }
+}
