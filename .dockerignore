@@ -1,0 +1,36 @@
+# Build artifacts (keep assembly/build/build.xml - it's the assembly descriptor)
+assembly/build/supersonic-standalone-*.zip
+assembly/build/supersonic-webapp.tar.gz
+assembly/build/launchers-*-bin.tar.gz
+assembly/build/supersonic-standalone-*/
+**/target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Git
+.git/
+.gitignore
+
+# Docker
+docker/
+
+# Docs and reports
+*.md
+!CLAUDE.md
+api_test_results/
+*.json
+*.png
+*.jpg
+
+# Node
+**/node_modules/
+webapp/**/dist/
+webapp/**/.umi/
+
+# Misc
+.DS_Store
+*.log
+.playwright-cli/

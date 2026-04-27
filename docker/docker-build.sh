@@ -1,29 +1,22 @@
 #!/usr/bin/env bash
 
-# Function to execute the build script
-execute_build_script() {
-  echo "Executing build script: sh assembly/bin/supersonic-build.sh"
-  sh assembly/bin/supersonic-build.sh
-}
+# Multi-stage Docker build: builds everything inside the container
+# No local Java/Maven/Node.js required
 
-# Function to build the Docker image
-build_docker_image() {
-  local version=$1
-  echo "Building Docker image: supersonic:$version"
-  docker build --no-cache --build-arg SUPERSONIC_VERSION=$version -t supersonicbi/supersonic:$version -f docker/Dockerfile .
-  if [ $? -ne 0 ]; then
-    echo "Docker build failed. Exiting."
-    exit 1
-  fi
-  echo "Docker image supersonic:$version built successfully."
-}
+VERSION=${1:-1.0.0-SNAPSHOT}
 
-# Main script execution
-VERSION=$1
-if [ -z "$VERSION" ]; then
-  echo "Usage: $0 <version>"
+echo "Building Docker image: supersonicbi/supersonic:${VERSION}"
+echo "This will build the project inside Docker (may take 10-20 minutes on first run)..."
+
+docker build \
+  --build-arg SUPERSONIC_VERSION=${VERSION} \
+  -t supersonicbi/supersonic:${VERSION} \
+  -f docker/Dockerfile \
+  .
+
+if [ $? -ne 0 ]; then
+  echo "Docker build failed."
   exit 1
 fi
 
-execute_build_script
-build_docker_image $VERSION
+echo "Docker image supersonicbi/supersonic:${VERSION} built successfully."

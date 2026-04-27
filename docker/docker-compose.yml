@@ -26,10 +26,11 @@ services:
       retries: 5
 
   supersonic_standalone:
-    image: supersonicbi/supersonic:${SUPERSONIC_VERSION:-latest}
+    image: supersonicbi/supersonic:1.0.0-SNAPSHOT
     privileged: true
     container_name: supersonic_standalone
     environment:
+      SUPERSONIC_VERSION: 1.0.0-SNAPSHOT
       S2_DB_TYPE: postgres
       S2_DB_HOST: supersonic_postgres
       S2_DB_PORT: 5432
